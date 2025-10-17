@@ -1,0 +1,90 @@
+/* Contenitore principale dell'app */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.App {
+  width: 100%;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #555;
+}
+
+.app-header h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+/* Invito al login */
+.login-prompt {
+  margin-top: 4rem;
+}
+.login-prompt button {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  padding: 0.8em 1.5em;
+}
+
+/* Dashboard */
+.dashboard-container {
+  text-align: left;
+}
+.saldo-display {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+/* Form per le giocate */
+.bet-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.bet-form input,
+.bet-form select,
+.bet-form button {
+  padding: 0.6em;
+  font-size: 1em;
+  flex: 1 1 180px; /* Responsive per schermi piccoli */
+}
+
+/* Tabella delle giocate */
+.list-container {
+  width: 100%;
+  overflow-x: auto; /* Aggiunge scroll orizzontale su schermi piccoli */
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+th, td {
+  border: 1px solid #444;
+  padding: 0.75rem;
+  text-align: left;
+}
+th {
+  background-color: #1a1a1a;
+}
+
+/* Colora le righe in base all'esito */
+.esito-vinta {
+  background-color: rgba(42, 90, 42, 0.5);
+}
+.esito-persa {
+  background-color: rgba(107, 43, 43, 0.5);
+}
+.esito-in-attesa {
+  color: #ccc;
+}
