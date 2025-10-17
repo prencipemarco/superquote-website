@@ -1,0 +1,12 @@
+# Questo file dice a Netlify come costruire il sito
+
+[build]
+  # Comando per la build (già lo usiamo)
+  command = "npm run build"
+  
+  # Cartella da pubblicare (già lo usiamo)
+  publish = "dist"
+  
+  # --- ISTRUZIONE CHIAVE ---
+  # Dice a Netlify dove trovare le funzioni serverless
+  functions = "netlify/functions"
