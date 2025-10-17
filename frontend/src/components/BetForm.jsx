@@ -1,13 +1,12 @@
 import { useState } from 'react'
 
 function BetForm({ onAddBet }) {
-  // Usiamo uno stato unico per tutti i campi del form
+  // Rimosso 'registratoDa' dallo stato
   const [formData, setFormData] = useState({
     risultato: '',
     quota: '',
     importo: '',
-    esito: 'In attesa', // Valore predefinito
-    registratoDa: 'Marco', // Valore predefinito
+    esito: 'In attesa',
   })
 
   const handleChange = (e) => {
@@ -21,28 +20,27 @@ function BetForm({ onAddBet }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     
-    // Calcoliamo i campi mancanti
     const quota = parseFloat(formData.quota)
     const importo = parseFloat(formData.importo)
-    const vincita = (quota * importo).toFixed(2)
     
-    const newBet = {
+    const newBetData = {
       ...formData,
       quota,
       importo,
-      vincita,
-      id: Date.now(), // ID unico basato sul timestamp
-      data: new Date().toLocaleDateString(), // Data di oggi
+      // Calcoliamo la vincita potenziale
+      vincita: (quota * importo).toFixed(2),
+      // id, data, e registrato_da verranno gestiti dal backend
     }
 
-    onAddBet(newBet) // Passiamo la nuova giocata al genitore (App.jsx)
+    // Chiama la funzione 'addBet' di App.jsx (che ora è asincrona)
+    onAddBet(newBetData) 
     
-    // Reset del form (tranne 'registratoDa' ed 'esito')
+    // Resetta il form
     setFormData({
-      ...formData,
       risultato: '',
       quota: '',
       importo: '',
+      esito: 'In attesa',
     })
   }
 
@@ -81,10 +79,9 @@ function BetForm({ onAddBet }) {
           <option value="Vinta">Vinta</option>
           <option value="Persa">Persa</option>
         </select>
-        <select name="registratoDa" value={formData.registratoDa} onChange={handleChange}>
-          <option value="Marco">Marco</option>
-          <option value="Amico">Amico</option>
-        </select>
+        
+        {/* IL CAMPO 'Registrato Da' È STATO RIMOSSO */}
+        
         <button type="submit">Aggiungi Giocata</button>
       </form>
     </div>

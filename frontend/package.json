@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",
+    "netlify-identity-widget": "^1.9.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
